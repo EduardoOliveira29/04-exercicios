@@ -18,17 +18,26 @@ public class BilheteUnico {
         this.numero=r.nextInt(1000,9999);
     }
 
-    public void passarCatraca(){
+    public boolean passarCatraca(){
         double valor = TARIFABASE;
         if (tipoTarifa.equalsIgnoreCase("estudante")||tipoTarifa.equalsIgnoreCase("professor")){
             valor=TARIFABASE/2;
         }
 
         if (saldo<valor){
-            return;
+            return false;
         }
 
         saldo=saldo-valor;
+        return true;
+
 
     }
+
+    public void carregarBilhete(double valor){
+        this.saldo+=valor;
+
+
+    }
+
 }
